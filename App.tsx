@@ -13,12 +13,13 @@ import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {gestureHandlerRootHOC} from 'react-native-gesture-handler';
 import gaussian from 'gaussian';
 import {LineGraph} from './src/LineGraph';
-import {Canvas, Text} from '@shopify/react-native-skia';
-import Animated, {
-  ComplexAnimationBuilder,
-  useSharedValue,
-} from 'react-native-reanimated';
+import {useSharedValue} from 'react-native-reanimated';
 import {ReText} from 'react-native-redash';
+
+interface Point {
+  value: number;
+  date: Date;
+}
 
 function weightedRandom(mean: number, variance: number): number {
   var distribution = gaussian(mean, variance);
@@ -39,7 +40,7 @@ const App = () => {
   const animatedText = useSharedValue('Hello');
   const points = generateRandomGraphData(500);
 
-  const onPointSelect = point => {
+  const onPointSelect = (point: Point) => {
     // alert(point.value);
     // console.log(444, point);
     animatedText.value = `${point.value}`;
