@@ -40,7 +40,7 @@ export function useHoldOrPanGesture({holdDuration = 300}: Config): Result {
   const panGesture = useMemo(
     () =>
       Gesture.Pan()
-        .manualActivation(true)
+        // .manualActivation(true)
         .onChange(e => {
           x.value = e.x;
           y.value = e.y;

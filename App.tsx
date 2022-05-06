@@ -38,7 +38,7 @@ export function generateRandomGraphData(length: number): any[] {
 
 const App = () => {
   const animatedText = useSharedValue('Hello');
-  const points = generateRandomGraphData(500);
+  const points = generateRandomGraphData(1000);
 
   const onPointSelect = (point: Point) => {
     // alert(point.value);
@@ -59,7 +59,7 @@ const App = () => {
           points={points}
           enablePanGesture={true}
           // enableFadeInMask={true}
-          onGestureStart={() => console.log('helllo')}
+          // onGestureStart={() => console.log('helllo')}
           selectionDotShadowColor={'#000000'}
         />
       </View>
